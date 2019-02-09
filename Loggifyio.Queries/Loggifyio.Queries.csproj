@@ -1,7 +1,15 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Loggifyio.Api.Common\Loggifyio.Api.Common.csproj" />
+    <ProjectReference Include="..\Loggifyio.Api.Models\Loggifyio.Api.Models.csproj" />
+    <ProjectReference Include="..\loggifyio.Data.Access\loggifyio.Data.Access.csproj" />
+    <ProjectReference Include="..\loggifyio.Data.Model\loggifyio.Data.Model.csproj" />
+    <ProjectReference Include="..\Loggifyio.Security\Loggifyio.Security.csproj" />
+  </ItemGroup>
 
 </Project>

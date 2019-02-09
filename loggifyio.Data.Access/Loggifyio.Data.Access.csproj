@@ -9,11 +9,19 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Maps" />
+    <ProjectReference Include="..\loggifyio.Data.Model\loggifyio.Data.Model.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\loggifyio.Data.Model\loggifyio.Data.Model.csproj" />
+    <Compile Remove="Maps\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="Maps\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Maps\**" />
   </ItemGroup>
 
 </Project>
