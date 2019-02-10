@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using System.Runtime.InteropServices.ComTypes;
 using System.Threading.Tasks;
@@ -6,13 +7,14 @@ using loggifyio.Data.Model;
 using Loggifyio.Api.Common;
 using Loggifyio.Api.Models;
 using Loggifyio.Security;
+using Remotion.Linq.Utilities;
 
 namespace Loggifyio.Queries
 {
     public class TraininglogQueryProcessor : ITraininglogQueryProcessor
     {
         private IUnitOfWork _uow;
-        private ISecurityContext _securityContext;
+        private readonly ISecurityContext _securityContext;
 
         public TraininglogQueryProcessor(IUnitOfWork uow, ISecurityContext securityContext)
         {
@@ -29,7 +31,7 @@ namespace Loggifyio.Queries
         private IQueryable<Traininglog> GetQuery()
         {
             var q = _uow.Query<Traininglog>().Where(x => !x.IsDeleted);
-            if (_securityContext.IsAdministrator)
+            if (!_securityContext.IsAdministrator)
             {
                 var userId = _securityContext.User.Id;
                 q = q.Where(x => x.UserId == userId);
@@ -44,25 +46,59 @@ namespace Loggifyio.Queries
  
             if (user == null)
             {
-                throw new NotFoundException("Expense is not found");
+                throw new NotFoundException("Traininglog is not found");
             }
  
             return user;        
         }
 
-        public Task<Traininglog> Create(CreateTrainingLogModel model)
+        public async Task<Traininglog> Create(CreateTrainingLogModel model)
         {
-            throw new System.NotImplementedException();
+            var trainingLog = new Traininglog
+            {
+                UserId = _securityContext.User.Id,
+                Date = model.Date,
+                Description = model.Description,
+                Rating = model.Rating,
+                Comment = model.Comment
+                
+            };
+            
+            _uow.Add(trainingLog);
+            await _uow.CommitAsync();
+            
+            return trainingLog;
         }
 
-        public Task<Traininglog> Update(int id, UpdateTrainingLogModel model)
+        public async Task<Traininglog> Update(int id, UpdateTrainingLogModel model)
         {
-            throw new System.NotImplementedException();
-        }
+            var traininglog = GetQuery().FirstOrDefault(x => x.Id == id);
 
-        public Task Delete(int id)
+            if (traininglog == null)
+            {
+                throw new NotFoundException("Traininglog is not found");
+            }
+
+            traininglog.Date = model.Date;
+            traininglog.Description = model.Description;
+            traininglog.Rating = model.Rating;
+            traininglog.Comment = model.Comment;
+
+            await _uow.CommitAsync();
+            return traininglog;        }
+
+        public async Task Delete(int id)
         {
-            throw new System.NotImplementedException();
-        }
+            var user = GetQuery().FirstOrDefault(u => u.Id == id);
+
+            if (user == null)
+            {
+                throw new NotFoundException("Traininglog is not found");
+            }
+
+            if (user.IsDeleted) return;
+
+            user.IsDeleted = true;
+            await _uow.CommitAsync();        }
     }
 }
