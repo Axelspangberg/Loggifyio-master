@@ -179,7 +179,7 @@ namespace Loggifyio.Queries.Tests
         }
         
         [Fact]
-        public async Task DeleteShoudlThrowExceptionIfItemIsNotBelongTheUser()
+        public void DeleteShouldThrowExceptionIfItemIsNotBelongTheUser()
         {
             var expense = new Traininglog { Id = _random.Next(), UserId = _random.Next() };
             _traininglogList.Add(expense);

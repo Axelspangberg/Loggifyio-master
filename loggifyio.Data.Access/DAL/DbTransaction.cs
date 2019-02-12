@@ -10,11 +10,6 @@ namespace loggifyio.Data.Access.DAL
         {
             _efTransaction = efTransaction;
         }
-        
-        public void Dispose()
-        {
-            _efTransaction.Dispose();
-        }
 
         public void Commit()
         {
@@ -24,6 +19,11 @@ namespace loggifyio.Data.Access.DAL
         public void Rollback()
         {
             _efTransaction.Rollback();
+        }
+
+        public void Dispose()
+        {
+            _efTransaction.Dispose();
         }
     }
 }

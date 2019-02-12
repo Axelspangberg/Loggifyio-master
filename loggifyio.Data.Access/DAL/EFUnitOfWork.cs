@@ -8,17 +8,14 @@ namespace loggifyio.Data.Access.DAL
 {
     public class EfUnitOfWork : IUnitOfWork
     {
-        private readonly DbContext _context;
+        private DbContext _context;
 
         public EfUnitOfWork(DbContext context)
         {
             _context = context;
         }
-        
-        public void Dispose()
-        {
-            throw new System.NotImplementedException();
-        }
+
+        public DbContext Context => _context;
 
         public ITransaction BeginTransaction(IsolationLevel isolationLevel = IsolationLevel.Snapshot)
         {
@@ -28,7 +25,8 @@ namespace loggifyio.Data.Access.DAL
         public void Add<T>(T obj) where T : class
         {
             var set = _context.Set<T>();
-            set.Add(obj);        }
+            set.Add(obj);
+        }
 
         public void Update<T>(T obj) where T : class
         {
@@ -63,6 +61,11 @@ namespace loggifyio.Data.Access.DAL
         {
             var set = _context.Set<T>();
             set.Attach(newUser);        
+        }
+
+        public void Dispose()
+        {
+            _context = null;
         }
     }
 }
