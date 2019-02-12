@@ -6,11 +6,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace loggifyio.Data.Access.DAL
 {
-    public class EfUnitOfWork : IUnitOfWork
+    public class EFUnitOfWork : IUnitOfWork
     {
         private DbContext _context;
 
-        public EfUnitOfWork(DbContext context)
+        public EFUnitOfWork(DbContext context)
         {
             _context = context;
         }

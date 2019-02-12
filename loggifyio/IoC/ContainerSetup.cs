@@ -23,12 +23,16 @@ namespace loggifyio
             ConfigureAuth(services);
         }
 
+        // AUTHENTICATION IS NOT DONE.
+
         private static void ConfigureAuth(IServiceCollection services)
         {
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             //services.AddScoped<ITokenBuilder, TokenBuilder>();
-            services.AddScoped<ISecurityContext, SecurityContext>();
+            //services.AddScoped<ISecurityContext, SecurityContext>(); // ADD THESE FOR AUTHENTICATION
         }
+
+        // AUTOMAPPER IS NOT DONE
 
         private static void ConfigureAutoMapper(IServiceCollection services)
         {
@@ -38,20 +42,22 @@ namespace loggifyio
             //services.AddTransient<IAutoMapper, AutoMapperAdapter>();
         }
 
+        // ADD Queries not done
+
         private static void AddQueries(IServiceCollection services)
         {
-            var exampleProcessorType = typeof(UsersQueryProcessor);
-            var types = (from t in exampleProcessorType.GetTypeInfo().Assembly.GetTypes()
-                where t.Namespace == exampleProcessorType.Namespace
-                      && t.GetTypeInfo().IsClass
-                      && t.GetTypeInfo().GetCustomAttribute<CompilerGeneratedAttribute>() == null
-                select t).ToArray();
+        //    var exampleProcessorType = typeof(UsersQueryProcessor);
+        //    var types = (from t in exampleProcessorType.GetTypeInfo().Assembly.GetTypes()
+        //        where t.Namespace == exampleProcessorType.Namespace
+        //              && t.GetTypeInfo().IsClass
+        //              && t.GetTypeInfo().GetCustomAttribute<CompilerGeneratedAttribute>() == null
+        //        select t).ToArray();
 
-            foreach (var type in types)
-            {
-                var interfaceQ = type.GetTypeInfo().GetInterfaces().First();
-                services.AddScoped(interfaceQ, type);
-            }
+        //    foreach (var type in types)
+        //    {
+        //        var interfaceQ = type.GetTypeInfo().GetInterfaces().First();
+        //        services.AddScoped(interfaceQ, type);
+        //    }
         }
 
         private static void AddUow(IServiceCollection services, IConfiguration configuration)
@@ -63,7 +69,7 @@ namespace loggifyio
             services.AddDbContext<MainDbContext>(options =>
                 options.UseSqlServer(connectionString));
 
-            services.AddScoped<IUnitOfWork>(ctx => new EfUnitOfWork(ctx.GetRequiredService<MainDbContext>()));
+            services.AddScoped<IUnitOfWork>(ctx => new EFUnitOfWork(ctx.GetRequiredService<MainDbContext>()));
             services.AddScoped<IActionTransactionHelper, ActionTransactionHelper>();
             services.AddScoped<UnitOfWorkFilterAttribute>();
         }
