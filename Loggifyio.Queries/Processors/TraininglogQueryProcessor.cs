@@ -31,7 +31,7 @@ namespace Loggifyio.Queries
         private IQueryable<Traininglog> GetQuery()
         {
             var q = _uow.Query<Traininglog>().Where(x => !x.IsDeleted);
-            if (!_securityContext.IsAdministrator)
+            if (_securityContext.IsAdministrator) return q;
             {
                 var userId = _securityContext.User.Id;
                 q = q.Where(x => x.UserId == userId);
