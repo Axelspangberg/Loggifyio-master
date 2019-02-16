@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 using loggifyio.Data.Access.DAL;
@@ -41,7 +42,7 @@ namespace Loggifyio.Queries.Processors
             return user;
         }
 
-        public Task<User> Create(CreateUserModel model)
+        public async Task<User> Create(CreateUserModel model)
         {
             var username = model.Username.Trim();
             if (GetQuery().Any(u => u.Username == username))
@@ -58,32 +59,45 @@ namespace Loggifyio.Queries.Processors
                 
             };
 
-//            AddUserRoles(user, model.Roles);
+            AddUserRoles(user, model.Roles);
+            _uow.Add(user);
+            await _uow.CommitAsync();
 
-            return null;
+            return user;
         }
 
-//        private void AddUserRoles(User user, string[] modelRoles)
-//        {
-//                        user.Roles.Clear();
-//            
-//                        foreach (var roleName in roleNames)
-//                        {
-//                            var role = _uow.Query<Role>().FirstOrDefault(x => x.Name == roleName);
-//            
-//                            if (role == null)
-//                            {
-//                                throw new NotFoundException($"Role - {roleName} is not found");
-//                            }
-//            
-//                            user.Roles.Add(new UserRole{User = user, Role = role});
-//                        }
-//                    }
-//        }
-
-        public Task<User> Update(int id, UpdateUserModel model)
+        private void AddUserRoles(User user, string[] rolesNames)
         {
-            throw new System.NotImplementedException();
+            user.Roles.Clear();
+
+            foreach (var roleName in rolesNames)
+            {
+                var role = _uow.Query<Role>().FirstOrDefault(x => x.Name == roleName);
+
+                if (role == null) throw new NotFoundException($"Role - {roleName} is not found");
+
+                user.Roles.Add(new UserRoles {User = user, Role = role});
+            }
+        }
+        
+
+        public async Task<User> Update(int id, UpdateUserModel model)
+        {
+            var user = GetQuery().FirstOrDefault(x => x.Id == id);
+
+            if (user == null)
+            {
+                throw new NotFoundException("User is not found");
+            }
+            
+            user.Username = model.Username;
+            user.FirstName = model.FirstName;
+            user.LastName = model.LastName;
+
+            AddUserRoles(user, model.Roles);
+
+            await _uow.CommitAsync();
+            return user;
         }
 
         public Task Delete(int id)

@@ -21,7 +21,7 @@ namespace Loggifyio.Queries.Tests
         private readonly Mock<IUnitOfWork> _uow;
         private readonly List<User> _userList;
         private readonly List<Role> _roleList;
-        private UserQueryProcessor _query;
+        private IUserQueryProcessor _query;
 
 
         public UserQueryProcessorTest()
@@ -98,21 +98,21 @@ namespace Loggifyio.Queries.Tests
         [Fact]
         public async Task CreateShouldSaveNewUser()
         {
-            var newUser = new CreateUserModel
+            var model = new CreateUserModel
             {
                 Password = _random.Next().ToString(),
                 Username = _random.Next().ToString(),
                 LastName = _random.Next().ToString(),
                 FirstName = _random.Next().ToString(),
             };
-            
-            var result = await _query.Create(newUser);
-            
+
+            var result = await _query.Create(model);
+
             result.Password.Should().NotBeEmpty();
-            result.Username.Should().Be(newUser.Username);
-            result.LastName.Should().Be(newUser.LastName);
-            result.FirstName.Should().Be(newUser.FirstName);
-            
+            result.Username.Should().Be(model.Username);
+            result.LastName.Should().Be(model.LastName);
+            result.FirstName.Should().Be(model.FirstName);
+
             _uow.Verify(x => x.Add(result));
             _uow.Verify(x => x.CommitAsync());
         }
@@ -120,16 +120,69 @@ namespace Loggifyio.Queries.Tests
         [Fact]
         public async Task CreateShouldAddUserRoles()
         {
+            var role = new Role
+            {
+                Name = _random.Next().ToString()
+            };
+            _roleList.Add(role);
+
+            var model = new CreateUserModel
+            {
+            Username = _random.Next().ToString(),
+            Password =_random.Next().ToString(),
+            FirstName =_random.Next().ToString(),
+            LastName =_random.Next().ToString(),
+            Roles = new[] {role.Name}
+            };
+
+            var result = await _query.Create(model);
+
+            result.Roles.Should().HaveCount(1);
+            result.Roles.Should().Contain(x => x.User == result && x.Role == role);
+
         }
 
         [Fact]
         public void CreateShouldThrowExceptionIfUsernameIsNotUnique()
         {
+            var model = new CreateUserModel
+            {
+                Username = _random.Next().ToString(),
+            };
+            
+            _userList.Add(new User{Username = model.Username});
+
+            Action create = () =>
+            {
+                var x = _query.Create(model).Result;
+            };
+
+            create.Should().Throw<BadRequest>();
         }
 
+        // TEST FOR UPDATE STARTS HERE
+        
         [Fact]
         public async Task UpdateShouldUpdateUserFields()
         {
+            var user = new User{Id = _random.Next()};
+            _userList.Add(user);
+            
+            var model = new UpdateUserModel
+            {
+                Username = _random.Next().ToString(),
+                LastName = _random.Next().ToString(),
+                FirstName = _random.Next().ToString(),
+            };
+
+            var result = await _query.Update(user.Id, model);
+            
+            result.Should().Be(user);
+            result.Username.Should().Be(model.Username);
+            result.LastName.Should().Be(model.LastName);
+            result.FirstName.Should().Be(model.FirstName);
+
+            _uow.Verify(x => x.CommitAsync());
         }
 
         [Fact]
