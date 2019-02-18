@@ -188,26 +188,91 @@ namespace Loggifyio.Queries.Tests
         [Fact]
         public async Task UpdateShouldUpdateRoles()
         {
+            var role = new Role
+            {
+                Name = _random.Next().ToString()
+            };
+            _roleList.Add(role);
+
+            var user = new User
+            {
+                Id = _random.Next(),
+                Roles = new List<UserRoles>
+                {
+                    new UserRoles()
+                }
+            };
+            _userList.Add(user);
+
+            var model = new UpdateUserModel
+            {
+                LastName = _random.Next().ToString(),
+                FirstName = _random.Next().ToString(),
+                Roles = new[] { role.Name }
+            };
+
+            var result = await _query.Update(user.Id, model);
+
+            result.Roles.Should().HaveCount(1);
+            result.Roles.Should().Contain(x => x.User == result && x.Role == role);
+
         }
 
         [Fact]
         public void UpdateShouldThrowExceptionIfUserIsNotFound()
         {
+            Action create = () =>
+            {
+                var result = _query.Update(_random.Next(), new UpdateUserModel()).Result;
+            };
+
+            create.Should().Throw<NotFoundException>();
         }
 
         [Fact]
         public async Task DeleteShouldMarkUserAsDeleted()
         {
+            var user = new User
+            {
+                Id = _random.Next(),
+            };
+            _userList.Add(user);
+
+            await _query.Delete(user.Id);
+            
+            user.IsDeleted.Should().BeTrue();
+
+            _uow.Verify(x => x.CommitAsync());
         }
+        
 
         [Fact]
         public void DeleteShouldThrowExceptionIfUserIsNotFound()
         {
+            Action create = () =>
+            {
+                _query.Delete(_random.Next()).Wait();
+            };
+
+            create.Should().Throw<NotFoundException>();
         }
 
         [Fact]
         public async Task ChangePasswordShouldChangeUsersPassword()
         {
+            var user = new User { Id = _random.Next() };
+            _userList.Add(user);
+
+            var newPassword = _random.Next().ToString();
+
+            await _query.ChangePassword(user.Id, new ChangeUserPasswordModel
+            {
+                Password = newPassword
+            });
+
+            user.Password.Should().NotBeEmpty();
+
+            _uow.Verify(x => x.CommitAsync());
         }
     }
 }

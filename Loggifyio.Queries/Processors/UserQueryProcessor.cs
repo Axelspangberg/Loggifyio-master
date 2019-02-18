@@ -66,20 +66,22 @@ namespace Loggifyio.Queries.Processors
             return user;
         }
 
-        private void AddUserRoles(User user, string[] rolesNames)
+        private void AddUserRoles(User user, string[] roleNames)
         {
             user.Roles.Clear();
 
-            foreach (var roleName in rolesNames)
+            foreach (var roleName in roleNames)
             {
                 var role = _uow.Query<Role>().FirstOrDefault(x => x.Name == roleName);
 
-                if (role == null) throw new NotFoundException($"Role - {roleName} is not found");
+                if (role == null)
+                {
+                    throw new NotFoundException($"Role - {roleName} is not found");
+                }
 
-                user.Roles.Add(new UserRoles {User = user, Role = role});
+                user.Roles.Add(new UserRoles{User = user, Role = role});
             }
         }
-        
 
         public async Task<User> Update(int id, UpdateUserModel model)
         {
@@ -89,7 +91,7 @@ namespace Loggifyio.Queries.Processors
             {
                 throw new NotFoundException("User is not found");
             }
-            
+
             user.Username = model.Username;
             user.FirstName = model.FirstName;
             user.LastName = model.LastName;
@@ -100,14 +102,27 @@ namespace Loggifyio.Queries.Processors
             return user;
         }
 
-        public Task Delete(int id)
+        public async Task Delete(int id)
         {
-            throw new System.NotImplementedException();
+            var user = GetQuery().FirstOrDefault(x => x.Id == id);
+            
+            if (user == null)
+            {
+                throw new NotFoundException("User is not found");
+            }
+
+            if (user.IsDeleted) return;
+            
+            user.IsDeleted = true;
+            await _uow.CommitAsync();
+
         }
 
-        public Task ChangePassword(int id, ChangeUserPasswordModel model)
+        public async Task ChangePassword(int id, ChangeUserPasswordModel model)
         {
-            throw new System.NotImplementedException();
+            var user = Get(id);
+            user.Password = model.Password;
+            await _uow.CommitAsync();
         }
     }
 }
