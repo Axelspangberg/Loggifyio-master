@@ -1,6 +1,9 @@
-﻿namespace loggifyio
+﻿using System;
+
+namespace loggifyio
 {
-    internal interface ITokenBuilder
+    public interface ITokenBuilder
     {
+        string Build(string name, string[] roles, DateTime expireDate);
     }
 }
