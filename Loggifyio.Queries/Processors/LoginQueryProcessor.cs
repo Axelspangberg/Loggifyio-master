@@ -4,6 +4,8 @@ using System.Threading.Tasks;
 using loggifyio;
 using loggifyio.Data.Access.DAL;
 using loggifyio.Data.Model;
+using loggifyio.Encryption;
+using loggifyio.Security;
 using Loggifyio.Api.Common;
 using Loggifyio.Api.Models;
 using Loggifyio.Queries.QueryModel;
@@ -43,7 +45,7 @@ namespace Loggifyio.Queries.Processors
                 throw new BadRequest("username/password aren't right");
             }
 
-            if (string.IsNullOrWhiteSpace(password))
+            if (string.IsNullOrWhiteSpace(password) || !user.Password.VerifyWithBCrypt(password))
             {
                 throw new BadRequest("username/password aren't right");
             }

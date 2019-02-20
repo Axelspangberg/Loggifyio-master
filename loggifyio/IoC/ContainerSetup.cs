@@ -4,6 +4,7 @@ using System.Runtime.CompilerServices;
 using System.Security;
 using Expenses.Helpers;
 using loggifyio.Data.Access.DAL;
+using loggifyio.Security;
 using Loggifyio.Security;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
@@ -28,8 +29,8 @@ namespace loggifyio
         private static void ConfigureAuth(IServiceCollection services)
         {
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-            //services.AddScoped<ITokenBuilder, TokenBuilder>();
-            //services.AddScoped<ISecurityContext, SecurityContext>(); // ADD THESE FOR AUTHENTICATION
+            services.AddScoped<ITokenBuilder, TokenBuilder>();
+            services.AddScoped<ISecurityContext, SecurityContext>(); 
         }
 
         // AUTOMAPPER IS NOT DONE

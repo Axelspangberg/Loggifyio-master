@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace loggifyio
+namespace loggifyio.Security
 {
     public interface ITokenBuilder
     {

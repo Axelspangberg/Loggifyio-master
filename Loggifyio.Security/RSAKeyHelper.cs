@@ -2,7 +2,7 @@ using System.Security.Cryptography;
 
 namespace Loggifyio.Queries.Processors
 {
-    public static class RsaKeyHelper
+    public static class RSAKeyHelper
     {
         
         public static RSAParameters GenerateKey()
