@@ -3,8 +3,10 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Security;
 using Expenses.Helpers;
+using loggifyio.AutoMapperSetup;
 using loggifyio.Data.Access.DAL;
 using loggifyio.Security;
+using Loggifyio.Queries.Processors;
 using Loggifyio.Security;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
@@ -37,28 +39,28 @@ namespace loggifyio
 
         private static void ConfigureAutoMapper(IServiceCollection services)
         {
-            //var mapperConfig = AutoMapperConfigurator.Configure();
-            //var mapper = mapperConfig.CreateMapper();
-            //services.AddSingleton(x => mapper);
-            //services.AddTransient<IAutoMapper, AutoMapperAdapter>();
+            var mapperConfig = AutoMapperConfigurator.Configure();
+            var mapper = mapperConfig.CreateMapper();
+            services.AddSingleton(x => mapper);
+            services.AddTransient<IAutoMapper, AutoMapperAdapter>();
         }
 
         // ADD Queries not done
 
         private static void AddQueries(IServiceCollection services)
         {
-        //    var exampleProcessorType = typeof(UsersQueryProcessor);
-        //    var types = (from t in exampleProcessorType.GetTypeInfo().Assembly.GetTypes()
-        //        where t.Namespace == exampleProcessorType.Namespace
-        //              && t.GetTypeInfo().IsClass
-        //              && t.GetTypeInfo().GetCustomAttribute<CompilerGeneratedAttribute>() == null
-        //        select t).ToArray();
+            var exampleProcessorType = typeof(UserQueryProcessor);
+            var types = (from t in exampleProcessorType.GetTypeInfo().Assembly.GetTypes()
+                         where t.Namespace == exampleProcessorType.Namespace
+                               && t.GetTypeInfo().IsClass
+                               && t.GetTypeInfo().GetCustomAttribute<CompilerGeneratedAttribute>() == null
+                         select t).ToArray();
 
-        //    foreach (var type in types)
-        //    {
-        //        var interfaceQ = type.GetTypeInfo().GetInterfaces().First();
-        //        services.AddScoped(interfaceQ, type);
-        //    }
+            foreach (var type in types)
+            {
+                var interfaceQ = type.GetTypeInfo().GetInterfaces().First();
+                services.AddScoped(interfaceQ, type);
+            }
         }
 
         private static void AddUow(IServiceCollection services, IConfiguration configuration)

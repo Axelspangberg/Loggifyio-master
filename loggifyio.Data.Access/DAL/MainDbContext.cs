@@ -5,7 +5,7 @@ namespace loggifyio.Data.Access.DAL
     public partial class MainDbContext : DbContext
     {
         public MainDbContext(DbContextOptions<MainDbContext> options)
-            : base()
+            : base(options)
         {
         }
 

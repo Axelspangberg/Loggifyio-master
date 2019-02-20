@@ -41,7 +41,7 @@ namespace loggifyio
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
 
-            //InitDatabase(app);
+            InitDatabase(app);
             app.UseStaticFiles();
 
             if (env.IsDevelopment())
