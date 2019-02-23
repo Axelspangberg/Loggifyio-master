@@ -26,7 +26,6 @@ namespace loggifyio
             ConfigureAuth(services);
         }
 
-        // AUTHENTICATION IS NOT DONE.
 
         private static void ConfigureAuth(IServiceCollection services)
         {
@@ -35,7 +34,6 @@ namespace loggifyio
             services.AddScoped<ISecurityContext, SecurityContext>(); 
         }
 
-        // AUTOMAPPER IS NOT DONE
 
         private static void ConfigureAutoMapper(IServiceCollection services)
         {
@@ -45,7 +43,6 @@ namespace loggifyio
             services.AddTransient<IAutoMapper, AutoMapperAdapter>();
         }
 
-        // ADD Queries not done
 
         private static void AddQueries(IServiceCollection services)
         {
