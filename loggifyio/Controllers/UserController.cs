@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using loggifyio.AutoMapperSetup;
 using loggifyio.Data.Model;
+using loggifyio.Filters;
 using Loggifyio.Api.Models;
 using Loggifyio.Queries.Processors;
 using Microsoft.AspNetCore.Mvc;
@@ -21,6 +22,7 @@ namespace loggifyio.Controllers
         }
 
         [HttpGet]
+        [ValidateModel]
         //[/*QueryableResult*/]
         public IQueryable<UserModel> Get()
         {
@@ -30,6 +32,7 @@ namespace loggifyio.Controllers
         }
 
         [HttpGet("{id}")]
+        [ValidateModel]
         public UserModel Get(int id)
         {
             var item = _query.Get(id);
@@ -38,7 +41,7 @@ namespace loggifyio.Controllers
         }
 
         [HttpPost]
-        //[ValidateModel]
+        [ValidateModel]
         public async Task<UserModel> Post([FromBody]CreateUserModel requestModel)
         {
             var item = await _query.Create(requestModel);
@@ -47,14 +50,14 @@ namespace loggifyio.Controllers
         }
 
         [HttpPost("{id}/password")]
-        //[/*ValidateModel*/]
+        [ValidateModel]
         public async Task ChangePassword(int id, [FromBody]ChangeUserPasswordModel requestModel)
         {
             await _query.ChangePassword(id, requestModel);
         }
 
         [HttpPut("{id}")]
-        //[/*ValidateModel*/]
+       [ValidateModel]
         public async Task<UserModel> Put(int id, [FromBody]UpdateUserModel requestModel)
         {
             var item = await _query.Update(id, requestModel);

@@ -1,5 +1,6 @@
 ﻿using System;
 using loggifyio.Data.Access.DAL;
+using loggifyio.Filters;
 using Loggifyio.Security;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
@@ -10,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json;
 using Swashbuckle.AspNetCore.Swagger;
 
 namespace loggifyio
@@ -67,6 +69,12 @@ namespace loggifyio
             {
                 c.SwaggerDoc("v1", new Info { Title = "Loggifyio", Version = "v1" });
             });
+
+            services.AddMvc(options => { options.Filters.Add(new ApiExceptionFilter()); })
+                .AddJsonOptions(o =>
+                {
+                    o.SerializerSettings.DateTimeZoneHandling = DateTimeZoneHandling.Local;
+                });
         }
 
 
@@ -74,7 +82,6 @@ namespace loggifyio
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-
             InitDatabase(app);
             app.UseStaticFiles();
 

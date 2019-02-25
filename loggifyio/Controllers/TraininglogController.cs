@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using loggifyio.AutoMapperSetup;
 using loggifyio.Data.Model;
+using loggifyio.Filters;
 using Loggifyio.Api.Models;
 using Loggifyio.Queries;
 using Microsoft.AspNetCore.Mvc;
@@ -31,6 +32,7 @@ namespace loggifyio.Controllers
         }
 
         [HttpGet("{id}")]
+        [ValidateModel]
         public TrainingLogModel Get(int id)
         {
             var item = _query.Get(id);
@@ -39,6 +41,7 @@ namespace loggifyio.Controllers
         }
 
         [HttpPost]
+        [ValidateModel]
         public async Task<TrainingLogModel> Post([FromBody]CreateTrainingLogModel requestModel)
         {
             var item = await _query.Create(requestModel);
@@ -47,6 +50,7 @@ namespace loggifyio.Controllers
         }
 
         [HttpPut("{id}")]
+        [ValidateModel]
         public async Task<TrainingLogModel> Put(int id, [FromBody]UpdateTrainingLogModel requestModel)
         {
             var item = await _query.Update(id, requestModel);
@@ -55,6 +59,7 @@ namespace loggifyio.Controllers
         }
 
         [HttpDelete("{id}")]
+        [ValidateModel]
         public async Task Delete(int id)
         {
             await _query.Delete(id);

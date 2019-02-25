@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using loggifyio.AutoMapperSetup;
 using loggifyio.Data.Model;
+using loggifyio.Filters;
 using Loggifyio.Api.Models;
 using Loggifyio.Queries;
 using Loggifyio.Queries.Processors;
@@ -25,7 +26,7 @@ namespace loggifyio.Controllers
         }
 
         [HttpPost("Authenticate")]
-        //[ValidateModel]
+        [ValidateModel]
         public UserWithTokenModel Authenticate([FromBody] LoginModel model)
         {
             var result = _query.Authenticate(model.Username, model.Password);
@@ -36,7 +37,7 @@ namespace loggifyio.Controllers
         }
 
         [HttpPost("Register")]
-        //[ValidateModel]
+        [ValidateModel]
         public async Task<UserModel> Register([FromBody] RegisterModel model)
         {
             var result = await _query.Register(model);
@@ -45,7 +46,7 @@ namespace loggifyio.Controllers
         }
 
         [HttpPost("Password")]
-        //[ValidateModel]
+        [ValidateModel]
         [Authorize]
         public async Task ChangePassword([FromBody]ChangeUserPasswordModel requestModel)
         {

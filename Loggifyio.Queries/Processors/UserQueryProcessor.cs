@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using loggifyio.Data.Access.DAL;
 using loggifyio.Data.Model;
+using loggifyio.Encryption;
 using Loggifyio.Api.Common;
 using Loggifyio.Api.Models;
 using Microsoft.EntityFrameworkCore;
@@ -53,7 +54,7 @@ namespace Loggifyio.Queries.Processors
             var user = new User
             {
                 Username = model.Username.Trim(),
-                Password = model.Password.Trim(), // TODO: ADD ENCRYPTION LATER
+                Password = model.Password.Trim().WithBCrypt(), // TODO: ADD ENCRYPTION LATER
                 FirstName = model.FirstName.Trim(),
                 LastName = model.LastName.Trim()
                 
@@ -121,7 +122,7 @@ namespace Loggifyio.Queries.Processors
         public async Task ChangePassword(int id, ChangeUserPasswordModel model)
         {
             var user = Get(id);
-            user.Password = model.Password;
+            user.Password = model.Password.WithBCrypt();
             await _uow.CommitAsync();
         }
     }
