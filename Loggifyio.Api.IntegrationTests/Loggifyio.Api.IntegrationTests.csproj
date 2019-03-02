@@ -1,0 +1,43 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentAssertions" Version="5.6.0" />
+    <PackageReference Include="Microsoft.AspNetCore.TestHost" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.2.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.0" />
+    <PackageReference Include="Moq" Version="4.10.1" />
+    <PackageReference Include="xunit" Version="2.4.0" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Users\" />
+    <Folder Include="Helpers\" />
+    <Folder Include="Login\" />
+    <Folder Include="Traininglog\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Loggifyio.Api.Common\Loggifyio.Api.Common.csproj" />
+    <ProjectReference Include="..\Loggifyio.Api.Models\Loggifyio.Api.Models.csproj" />
+    <ProjectReference Include="..\loggifyio.Data.Access\loggifyio.Data.Access.csproj" />
+    <ProjectReference Include="..\loggifyio.Data.Model\loggifyio.Data.Model.csproj" />
+    <ProjectReference Include="..\Loggifyio.Queries.Tests\Loggifyio.Queries.Tests.csproj" />
+    <ProjectReference Include="..\Loggifyio.Queries\Loggifyio.Queries.csproj" />
+    <ProjectReference Include="..\Loggifyio.Security\Loggifyio.Security.csproj" />
+    <ProjectReference Include="..\loggifyio\loggifyio.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="xunit.core, Version=2.4.1.0, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c">
+      <HintPath>..\..\..\Users\Axel Spångberg\.nuget\packages\xunit.extensibility.core\2.4.1\lib\netstandard1.1\xunit.core.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
