@@ -1,14 +1,12 @@
-﻿using System;
-
-namespace Loggifyio.Api.Models
+﻿namespace Loggifyio.Api.Models.Common
 {
-    public class CreateTrainingLog<T>
+    public class DataResult<T>
     {
         public T[] Data { get; set; }
         public int Total { get; set; }
     }
 
-    public class CreateTrainingLog
+    public class DataResult
     {
         public object Data { get; set; }
         public int Total { get; set; }

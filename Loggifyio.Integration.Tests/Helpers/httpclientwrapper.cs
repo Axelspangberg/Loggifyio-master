@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Text;
+﻿using System.Net.Http;
 using System.Threading.Tasks;
-using Loggifyio.Api.IntegrationTests.Common;
+using Loggifyio.Api.Integration.Tests.Common;
 using Newtonsoft.Json;
 
-namespace Loggifyio.Api.IntegrationTests.Helpers
+namespace Loggifyio.Integration.Tests.Helpers
 {
     public class HttpClientWrapper
     {

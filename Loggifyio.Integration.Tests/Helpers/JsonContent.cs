@@ -2,8 +2,9 @@
 using System.Text;
 using Newtonsoft.Json;
 
-namespace Loggifyio.Api.IntegrationTests.Common
-{
+namespace Loggifyio.Api.Integration.Tests.Common
+{ 
+
     public class JsonContent : StringContent
     {
         public JsonContent(object obj) :

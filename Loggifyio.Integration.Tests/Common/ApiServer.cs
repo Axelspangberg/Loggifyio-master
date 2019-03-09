@@ -2,20 +2,19 @@
 using System.IO;
 using System.Net.Http;
 using loggifyio;
+using Loggifyio.Api.Integration.Tests.Common;
 using Loggifyio.Api.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 
-namespace Loggifyio.Api.IntegrationTests.Common
+namespace Loggifyio.Integration.Tests.Common
 {
     public class ApiServer : IDisposable
     {
         public const string Username = "admin";
         public const string Password = "admin";
-        public TestServer Server { get; set; }
-        public HttpClient Client { get; set; }
 
         private IConfigurationRoot _config;
 
@@ -28,10 +27,9 @@ namespace Loggifyio.Api.IntegrationTests.Common
 
             Server = new TestServer(new WebHostBuilder().UseStartup<Startup>());
             Client = GetAuthenticatedClient(Username, Password);
-
         }
 
-        private HttpClient GetAuthenticatedClient(string username, string password)
+        public HttpClient GetAuthenticatedClient(string username, string password)
         {
             var client = Server.CreateClient();
             var response = client.PostAsync("/api/Login/Authenticate",
@@ -44,6 +42,9 @@ namespace Loggifyio.Api.IntegrationTests.Common
             return client;
         }
 
+        public HttpClient Client { get; private set; }
+
+        public TestServer Server { get; private set; }
 
         public void Dispose()
         {

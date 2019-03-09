@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.329
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "loggifyio", "loggifyio\loggifyio.csproj", "{6C1A429A-764B-4ECE-9441-C6858B0E2F14}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Loggifyio", "loggifyio\Loggifyio.csproj", "{6C1A429A-764B-4ECE-9441-C6858B0E2F14}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{70090783-3E66-4B9B-BD02-6A169FD4871B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{27C3B20D-18FF-4488-9638-ACE40DE34E58}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "loggifyio.Data.Model", "loggifyio.Data.Model\loggifyio.Data.Model.csproj", "{429C3DB9-130D-4D35-9B3E-AF38DA5A1291}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Loggifyio.Data.Model", "loggifyio.Data.Model\Loggifyio.Data.Model.csproj", "{429C3DB9-130D-4D35-9B3E-AF38DA5A1291}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "loggifyio.Data.Access", "loggifyio.Data.Access\loggifyio.Data.Access.csproj", "{BFCDDC49-44D5-4E02-B931-B882266F7D9A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Loggifyio.Data.Access", "loggifyio.Data.Access\Loggifyio.Data.Access.csproj", "{BFCDDC49-44D5-4E02-B931-B882266F7D9A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Loggifyio.Api.Common", "Loggifyio.Api.Common\Loggifyio.Api.Common.csproj", "{699BACEE-F58F-4F30-8B3E-2D613334B299}"
 EndProject
@@ -23,7 +23,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Loggifyio.Security", "Loggi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Loggifyio.Queries.Tests", "Loggifyio.Queries.Tests\Loggifyio.Queries.Tests.csproj", "{C12DE550-1799-41F2-81E4-E116F39C2AFA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Loggifyio.Api.IntegrationTests", "Loggifyio.Api.IntegrationTests\Loggifyio.Api.IntegrationTests.csproj", "{415D90BF-E11B-46DB-B4C6-51C1CA6026A1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Loggifyio.Integration.Tests", "Loggifyio.Integration.Tests\Loggifyio.Integration.Tests.csproj", "{F0BC7301-17B2-4D7B-9B7B-C78E4D24C217}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,10 +63,10 @@ Global
 		{C12DE550-1799-41F2-81E4-E116F39C2AFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C12DE550-1799-41F2-81E4-E116F39C2AFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C12DE550-1799-41F2-81E4-E116F39C2AFA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{415D90BF-E11B-46DB-B4C6-51C1CA6026A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{415D90BF-E11B-46DB-B4C6-51C1CA6026A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{415D90BF-E11B-46DB-B4C6-51C1CA6026A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{415D90BF-E11B-46DB-B4C6-51C1CA6026A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0BC7301-17B2-4D7B-9B7B-C78E4D24C217}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0BC7301-17B2-4D7B-9B7B-C78E4D24C217}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0BC7301-17B2-4D7B-9B7B-C78E4D24C217}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0BC7301-17B2-4D7B-9B7B-C78E4D24C217}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -80,7 +80,7 @@ Global
 		{38DEB4EB-079B-4AA6-BC19-0AD762EB1011} = {70090783-3E66-4B9B-BD02-6A169FD4871B}
 		{BE52E891-5B4C-48AD-8A20-5ADC39050526} = {70090783-3E66-4B9B-BD02-6A169FD4871B}
 		{C12DE550-1799-41F2-81E4-E116F39C2AFA} = {27C3B20D-18FF-4488-9638-ACE40DE34E58}
-		{415D90BF-E11B-46DB-B4C6-51C1CA6026A1} = {27C3B20D-18FF-4488-9638-ACE40DE34E58}
+		{F0BC7301-17B2-4D7B-9B7B-C78E4D24C217} = {27C3B20D-18FF-4488-9638-ACE40DE34E58}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {80164702-063D-4CF8-8FE1-298144AB695D}

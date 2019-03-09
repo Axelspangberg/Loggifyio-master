@@ -18,7 +18,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\loggifyio.Data.Access\loggifyio.Data.Access.csproj" />
+      <ProjectReference Include="..\loggifyio.Data.Access\Loggifyio.Data.Access.csproj" />
       <ProjectReference Include="..\Loggifyio.Queries\Loggifyio.Queries.csproj" />
       <ProjectReference Include="..\Loggifyio.Security\Loggifyio.Security.csproj" />
     </ItemGroup>

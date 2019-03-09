@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\loggifyio.Data.Model\loggifyio.Data.Model.csproj" />
+    <ProjectReference Include="..\loggifyio.Data.Model\Loggifyio.Data.Model.csproj" />
   </ItemGroup>
 
   <ItemGroup>

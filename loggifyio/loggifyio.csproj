@@ -33,8 +33,8 @@
   <ItemGroup>
     <ProjectReference Include="..\Loggifyio.Api.Common\Loggifyio.Api.Common.csproj" />
     <ProjectReference Include="..\Loggifyio.Api.Models\Loggifyio.Api.Models.csproj" />
-    <ProjectReference Include="..\loggifyio.Data.Access\loggifyio.Data.Access.csproj" />
-    <ProjectReference Include="..\loggifyio.Data.Model\loggifyio.Data.Model.csproj" />
+    <ProjectReference Include="..\loggifyio.Data.Access\Loggifyio.Data.Access.csproj" />
+    <ProjectReference Include="..\loggifyio.Data.Model\Loggifyio.Data.Model.csproj" />
     <ProjectReference Include="..\Loggifyio.Queries.Tests\Loggifyio.Queries.Tests.csproj" />
     <ProjectReference Include="..\Loggifyio.Queries\Loggifyio.Queries.csproj" />
     <ProjectReference Include="..\Loggifyio.Security\Loggifyio.Security.csproj" />
