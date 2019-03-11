@@ -31,11 +31,11 @@ namespace Loggifyio.Integration.Tests.Traininglog
             return items;
         }
 
-        [Fact]
-        public async Task ReturnAnyList()
-        {
-            var items = await Get(_client);
-            items.Should().NotBeNull();
-        }
+        //[Fact]
+        //public async Task ReturnAnyList()
+        //{
+        //    var items = await Get(_client);
+        //    items.Should().NotBeNull();
+        //}
     }
 }

@@ -22,8 +22,7 @@ namespace loggifyio.Controllers
         }
 
         [HttpGet]
-        [ValidateModel]
-        //[/*QueryableResult*/]
+        [QueryableResult]
         public IQueryable<UserModel> Get()
         {
             var result = _query.Get();
@@ -57,7 +56,7 @@ namespace loggifyio.Controllers
         }
 
         [HttpPut("{id}")]
-       [ValidateModel]
+        [ValidateModel]
         public async Task<UserModel> Put(int id, [FromBody]UpdateUserModel requestModel)
         {
             var item = await _query.Update(id, requestModel);

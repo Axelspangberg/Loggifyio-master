@@ -24,6 +24,7 @@ namespace loggifyio.Controllers
         }
 
         [HttpGet]
+        [QueryableResult]
         public IQueryable<TrainingLogModel> Get()
         {
             var result = _query.Get();
