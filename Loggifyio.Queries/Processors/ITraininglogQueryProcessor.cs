@@ -2,6 +2,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using loggifyio.Data.Model;
 using Loggifyio.Api.Models;
+using Loggifyio.Api.Models.traininglog;
 
 namespace Loggifyio.Queries.Processors
 {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace Loggifyio.Api.Models
+namespace Loggifyio.Api.Models.traininglog
 {
     public class UpdateTrainingLogModel
     {

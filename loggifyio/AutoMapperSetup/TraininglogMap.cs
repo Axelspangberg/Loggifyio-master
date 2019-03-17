@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using loggifyio.Data.Model;
 using Loggifyio.Api.Models;
+using Loggifyio.Api.Models.traininglog;
 
 namespace loggifyio.AutoMapperSetup
 {

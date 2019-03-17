@@ -54,7 +54,7 @@ namespace Loggifyio.Queries.Processors
             var user = new User
             {
                 Username = model.Username.Trim(),
-                Password = model.Password.Trim().WithBCrypt(), // TODO: ADD ENCRYPTION LATER
+                Password = model.Password.Trim().WithBCrypt(),
                 FirstName = model.FirstName.Trim(),
                 LastName = model.LastName.Trim()
                 

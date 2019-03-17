@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using FluentAssertions;
 using Loggifyio.Api.Models;
 using Loggifyio.Api.Models.Common;
+using Loggifyio.Api.Models.traininglog;
 using Loggifyio.Integration.Tests.Common;
 using Newtonsoft.Json;
 using Xunit;

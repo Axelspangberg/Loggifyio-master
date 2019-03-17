@@ -4,6 +4,7 @@ using loggifyio.Data.Access.DAL;
 using loggifyio.Data.Model;
 using Loggifyio.Api.Common;
 using Loggifyio.Api.Models;
+using Loggifyio.Api.Models.traininglog;
 using Loggifyio.Security;
 
 namespace Loggifyio.Queries.Processors
