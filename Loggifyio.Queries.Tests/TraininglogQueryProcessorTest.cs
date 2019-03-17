@@ -7,6 +7,7 @@ using loggifyio.Data.Access.DAL;
 using loggifyio.Data.Model;
 using Loggifyio.Api.Common;
 using Loggifyio.Api.Models;
+using Loggifyio.Queries.Processors;
 using Loggifyio.Security;
 using Moq;
 using Xunit;

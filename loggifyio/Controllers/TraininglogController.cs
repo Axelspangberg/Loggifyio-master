@@ -7,6 +7,7 @@ using loggifyio.Data.Model;
 using loggifyio.Filters;
 using Loggifyio.Api.Models;
 using Loggifyio.Queries;
+using Loggifyio.Queries.Processors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace loggifyio.Controllers

@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using loggifyio.Data.Model;
 using Loggifyio.Api.Models;
 
-namespace Loggifyio.Queries
+namespace Loggifyio.Queries.Processors
 {
     public interface ITraininglogQueryProcessor
     {

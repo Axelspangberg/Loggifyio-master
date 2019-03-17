@@ -1,15 +1,12 @@
-using System;
 using System.Linq;
-using System.Runtime.InteropServices.ComTypes;
 using System.Threading.Tasks;
 using loggifyio.Data.Access.DAL;
 using loggifyio.Data.Model;
 using Loggifyio.Api.Common;
 using Loggifyio.Api.Models;
 using Loggifyio.Security;
-using Remotion.Linq.Utilities;
 
-namespace Loggifyio.Queries
+namespace Loggifyio.Queries.Processors
 {
     public class TraininglogQueryProcessor : ITraininglogQueryProcessor
     {
