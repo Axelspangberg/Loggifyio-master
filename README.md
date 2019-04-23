@@ -4,7 +4,7 @@ Loggifyio is a Restful API for saving workout logs.
 
 ## Swagger UI
 
-![alt text](https://imgur.com/QGEKeRN)
+[alt text](https://imgur.com/QGEKeRN)
 
 ## Business logic is fully tested
 
