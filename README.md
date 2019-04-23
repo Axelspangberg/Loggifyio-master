@@ -1,20 +1,15 @@
 # Loggifyio
 
-Loggifyio is a Restful API for saving workout logs.
+Loggifyio is a Restful API for saving workout/training logs. All business logic has been tested and a swagger UI is provided.
 
-## Swagger UI
+## Various technices used in the project
 
-[alt text](https://imgur.com/QGEKeRN)
-
-## Business logic is fully tested
-
-```python
-import foobar
-
-foobar.pluralize('word') # returns 'words'
-foobar.pluralize('goose') # returns 'geese'
-foobar.singularize('phenomena') # returns 'phenomenon'
-```
+Markup : * For Mapping: Automapper
+         * For API filterinfg: Actionfilter
+         * For Architecture design: CQRS
+         * DAL: Entity framework core / unit of work pattern
+         * For tests: FluentAssertion, Moq, XUnit
+         * The query processor approach inspired by https://github.com/dimangulov/
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
