@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace loggifyio.Data.Access.Migrations
+namespace Loggifyio.Data.Access.Migrations
 {
     public partial class InitialCreate : Migration
     {

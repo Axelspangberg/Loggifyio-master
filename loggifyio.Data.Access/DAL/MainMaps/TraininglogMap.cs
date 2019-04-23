@@ -1,7 +1,8 @@
-using loggifyio.Data.Model;
+using Loggifyio.Data.Access.DAL.CommonMap;
+using Loggifyio.Data.Model;
 using Microsoft.EntityFrameworkCore;
 
-namespace loggifyio.Data.Access.DAL
+namespace Loggifyio.Data.Access.DAL.MainMaps
 {
     public class TraininglogMap : IMap
     {

@@ -1,6 +1,7 @@
 ﻿using System;
-using loggifyio.Data.Access.DAL;
-using loggifyio.Filters;
+using Loggifyio.Data.Access.DAL;
+using Loggifyio.Filters;
+using Loggifyio.IoC;
 using Loggifyio.Security;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
@@ -14,7 +15,7 @@ using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 using Swashbuckle.AspNetCore.Swagger;
 
-namespace loggifyio
+namespace Loggifyio
 {
     public class Startup
     {

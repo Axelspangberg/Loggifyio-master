@@ -2,8 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using Loggifyio.Data.Access.DAL.CommonMap;
+using Loggifyio.Data.Access.DAL.MainMaps;
 
-namespace loggifyio.Data.Access.DAL
+namespace Loggifyio.Data.Access.DAL
 {
     public partial class MainDbContext
     {

@@ -1,20 +1,19 @@
 ﻿using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
-using System.Security;
-using Expenses.Helpers;
-using loggifyio.AutoMapperSetup;
-using loggifyio.Data.Access.DAL;
-using loggifyio.Security;
+using Loggifyio.ActionHelper;
+using Loggifyio.AutoMapperSetup;
+using Loggifyio.Data.Access.DAL;
+using Loggifyio.Filters;
 using Loggifyio.Queries.Processors;
 using Loggifyio.Security;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Migrations.Operations;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using SecurityContext = Loggifyio.Security.SecurityContext;
 
-namespace loggifyio
+namespace Loggifyio.IoC
 {
     public static class ContainerSetup
     {

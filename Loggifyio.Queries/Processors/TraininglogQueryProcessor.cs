@@ -1,10 +1,11 @@
 using System.Linq;
 using System.Threading.Tasks;
-using loggifyio.Data.Access.DAL;
-using loggifyio.Data.Model;
 using Loggifyio.Api.Common;
+using Loggifyio.Api.Common.Exceptions;
 using Loggifyio.Api.Models;
 using Loggifyio.Api.Models.traininglog;
+using Loggifyio.Data.Access.DAL;
+using Loggifyio.Data.Model;
 using Loggifyio.Security;
 
 namespace Loggifyio.Queries.Processors

@@ -3,7 +3,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace loggifyio.Data.Access.DAL
+namespace Loggifyio.Data.Access.DAL
 {
     public interface IUnitOfWork : IDisposable
     {

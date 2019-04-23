@@ -1,4 +1,4 @@
-using loggifyio.Data.Model;
+using Loggifyio.Data.Model;
 
 namespace Loggifyio.Security
 {

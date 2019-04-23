@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AutoMapper;
-using loggifyio.Data.Model;
-using Loggifyio.Api.Models;
+﻿using AutoMapper;
 using Loggifyio.Api.Models.traininglog;
+using Loggifyio.Data.Model;
 
-namespace loggifyio.AutoMapperSetup
+namespace Loggifyio.AutoMapperSetup
 {
     public class TraininglogMap : IAutoMapperTypeConfigurator
     {

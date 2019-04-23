@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace loggifyio.Data.Access.DAL
+namespace Loggifyio.Data.Access.DAL.CommonMap
 {
     public interface IMap
     {

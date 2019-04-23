@@ -1,13 +1,12 @@
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-using loggifyio;
-using loggifyio.Data.Access.DAL;
-using loggifyio.Data.Model;
-using loggifyio.Encryption;
-using loggifyio.Security;
 using Loggifyio.Api.Common;
+using Loggifyio.Api.Common.Exceptions;
 using Loggifyio.Api.Models;
+using Loggifyio.Data.Access.DAL;
+using Loggifyio.Data.Access.Encryption;
+using Loggifyio.Data.Model;
 using Loggifyio.Queries.QueryModel;
 using Loggifyio.Security;
 using Microsoft.EntityFrameworkCore;

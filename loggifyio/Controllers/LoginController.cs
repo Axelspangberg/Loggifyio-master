@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using loggifyio.AutoMapperSetup;
-using loggifyio.Data.Model;
-using loggifyio.Filters;
+﻿using System.Threading.Tasks;
 using Loggifyio.Api.Models;
-using Loggifyio.Queries;
+using Loggifyio.AutoMapperSetup;
+using Loggifyio.Filters;
 using Loggifyio.Queries.Processors;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace loggifyio.Controllers
+namespace Loggifyio.Controllers
 {
     [Route("api/[controller]")]
     public class LoginController : Controller

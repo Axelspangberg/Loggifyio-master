@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 
-namespace loggifyio.AutoMapperSetup
+namespace Loggifyio.AutoMapperSetup
 {
     public interface IAutoMapperTypeConfigurator
     {

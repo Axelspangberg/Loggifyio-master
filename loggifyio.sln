@@ -23,8 +23,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Loggifyio.Security", "Loggi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Loggifyio.Queries.Tests", "Loggifyio.Queries.Tests\Loggifyio.Queries.Tests.csproj", "{C12DE550-1799-41F2-81E4-E116F39C2AFA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Loggifyio.Integration.Tests", "Loggifyio.Integration.Tests\Loggifyio.Integration.Tests.csproj", "{F0BC7301-17B2-4D7B-9B7B-C78E4D24C217}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,10 +61,6 @@ Global
 		{C12DE550-1799-41F2-81E4-E116F39C2AFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C12DE550-1799-41F2-81E4-E116F39C2AFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C12DE550-1799-41F2-81E4-E116F39C2AFA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F0BC7301-17B2-4D7B-9B7B-C78E4D24C217}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F0BC7301-17B2-4D7B-9B7B-C78E4D24C217}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F0BC7301-17B2-4D7B-9B7B-C78E4D24C217}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F0BC7301-17B2-4D7B-9B7B-C78E4D24C217}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -80,7 +74,6 @@ Global
 		{38DEB4EB-079B-4AA6-BC19-0AD762EB1011} = {70090783-3E66-4B9B-BD02-6A169FD4871B}
 		{BE52E891-5B4C-48AD-8A20-5ADC39050526} = {70090783-3E66-4B9B-BD02-6A169FD4871B}
 		{C12DE550-1799-41F2-81E4-E116F39C2AFA} = {27C3B20D-18FF-4488-9638-ACE40DE34E58}
-		{F0BC7301-17B2-4D7B-9B7B-C78E4D24C217} = {27C3B20D-18FF-4488-9638-ACE40DE34E58}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {80164702-063D-4CF8-8FE1-298144AB695D}

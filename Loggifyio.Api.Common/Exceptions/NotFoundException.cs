@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Loggifyio.Api.Common
+namespace Loggifyio.Api.Common.Exceptions
 {
     public class NotFoundException : Exception
     {

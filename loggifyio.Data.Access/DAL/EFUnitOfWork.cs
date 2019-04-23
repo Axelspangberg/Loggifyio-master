@@ -1,10 +1,9 @@
 using System.Data;
-using System.Data.Common;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
-namespace loggifyio.Data.Access.DAL
+namespace Loggifyio.Data.Access.DAL
 {
     public class EFUnitOfWork : IUnitOfWork
     {

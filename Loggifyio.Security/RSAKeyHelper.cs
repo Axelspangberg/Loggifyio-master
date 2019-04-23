@@ -1,6 +1,6 @@
 using System.Security.Cryptography;
 
-namespace Loggifyio.Queries.Processors
+namespace Loggifyio.Security
 {
     public static class RSAKeyHelper
     {

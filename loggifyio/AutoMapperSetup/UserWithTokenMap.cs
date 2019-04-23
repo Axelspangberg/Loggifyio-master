@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using Loggifyio.Api.Models;
 using Loggifyio.Queries.QueryModel;
 
-namespace loggifyio.AutoMapperSetup
+namespace Loggifyio.AutoMapperSetup
 {
     public class UserWithTokenMap : IAutoMapperTypeConfigurator
     {

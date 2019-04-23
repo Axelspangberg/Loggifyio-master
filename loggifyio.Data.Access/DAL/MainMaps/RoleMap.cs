@@ -1,7 +1,8 @@
+using Loggifyio.Data.Access.DAL.CommonMap;
+using Loggifyio.Data.Model;
 using Microsoft.EntityFrameworkCore;
-using loggifyio.Data.Model;
 
-namespace loggifyio.Data.Access.DAL
+namespace Loggifyio.Data.Access.DAL.MainMaps
 {
     public class RoleMap : IMap
     {

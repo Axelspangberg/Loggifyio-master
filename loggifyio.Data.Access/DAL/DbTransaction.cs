@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore.Storage;
 
-namespace loggifyio.Data.Access.DAL
+namespace Loggifyio.Data.Access.DAL
 {
     public class DbTransaction : ITransaction
     {

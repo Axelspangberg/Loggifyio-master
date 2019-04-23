@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
-using loggifyio.AutoMapperSetup;
-using loggifyio.Data.Model;
-using loggifyio.Filters;
-using Loggifyio.Api.Models;
 using Loggifyio.Api.Models.traininglog;
-using Loggifyio.Queries;
+using Loggifyio.AutoMapperSetup;
+using Loggifyio.Data.Model;
+using Loggifyio.Filters;
 using Loggifyio.Queries.Processors;
 using Microsoft.AspNetCore.Mvc;
 
-namespace loggifyio.Controllers
+namespace Loggifyio.Controllers
 {
     [Route("api/[controller]")]
     public class TraininglogController : Controller

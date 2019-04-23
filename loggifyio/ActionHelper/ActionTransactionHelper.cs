@@ -1,10 +1,9 @@
 ﻿using System;
-using loggifyio;
-using loggifyio.Data.Access.DAL;
+using Loggifyio.Data.Access.DAL;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Logging;
 
-namespace Expenses.Helpers
+namespace Loggifyio.ActionHelper
 {
     public class ActionTransactionHelper : IActionTransactionHelper
     {

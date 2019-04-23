@@ -3,7 +3,7 @@ using System.Linq;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
 
-namespace loggifyio.AutoMapperSetup
+namespace Loggifyio.AutoMapperSetup
 {
     public class AutoMapperAdapter : IAutoMapper
     {

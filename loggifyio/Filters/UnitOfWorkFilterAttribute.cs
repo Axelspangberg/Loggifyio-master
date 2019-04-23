@@ -1,6 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc.Filters;
+﻿using Loggifyio.ActionHelper;
+using Microsoft.AspNetCore.Mvc.Filters;
 
-namespace loggifyio
+namespace Loggifyio.Filters
 {
     public class UnitOfWorkFilterAttribute : ActionFilterAttribute
     {

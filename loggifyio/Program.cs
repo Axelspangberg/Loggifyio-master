@@ -1,9 +1,7 @@
 ﻿using System.IO;
-using Expenses;
-using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 
-namespace loggifyio
+namespace Loggifyio
 {
     public class Program
     {

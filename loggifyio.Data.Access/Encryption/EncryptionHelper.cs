@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace loggifyio.Encryption
+﻿namespace Loggifyio.Data.Access.Encryption
 {
     using BCrypt = BCrypt.Net.BCrypt;
 

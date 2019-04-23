@@ -1,4 +1,4 @@
-﻿namespace loggifyio.Data.Model
+﻿namespace Loggifyio.Data.Model
 {
     public class UserRoles
     {

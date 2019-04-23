@@ -1,5 +1,5 @@
 using System;
-using loggifyio.Data.Model;
+using Loggifyio.Data.Model;
 
 namespace Loggifyio.Queries.QueryModel
 {

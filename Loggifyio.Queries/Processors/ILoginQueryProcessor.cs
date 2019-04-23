@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
-using loggifyio.Data.Model;
 using Loggifyio.Api.Models;
+using Loggifyio.Data.Model;
 using Loggifyio.Queries.QueryModel;
 
 namespace Loggifyio.Queries.Processors

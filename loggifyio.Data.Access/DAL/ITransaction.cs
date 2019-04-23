@@ -1,6 +1,6 @@
 using System;
 
-namespace loggifyio.Data.Access.DAL
+namespace Loggifyio.Data.Access.DAL
 {
     public interface ITransaction : IDisposable
     {

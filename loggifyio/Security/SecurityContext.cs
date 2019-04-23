@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Linq;
-using loggifyio.Data.Access.Constants;
-using loggifyio.Data.Access.DAL;
-using loggifyio.Data.Model;
-using Loggifyio.Security;
+using Loggifyio.Data.Access.Constants;
+using Loggifyio.Data.Access.DAL;
+using Loggifyio.Data.Model;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 
-namespace loggifyio
+namespace Loggifyio.Security
 {
     public class SecurityContext : ISecurityContext
     {

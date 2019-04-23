@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Reflection.Metadata;
 
-namespace loggifyio.Data.Model
+namespace Loggifyio.Data.Model
 {
     public class Traininglog
     {

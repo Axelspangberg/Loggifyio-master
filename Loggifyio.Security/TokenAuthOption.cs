@@ -1,5 +1,4 @@
 using System;
-using Loggifyio.Queries.Processors;
 using Microsoft.IdentityModel.Tokens;
 
 namespace Loggifyio.Security

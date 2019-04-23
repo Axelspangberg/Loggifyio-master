@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using AutoMapper;
-using loggifyio.Data.Model;
 using Loggifyio.Api.Models;
+using Loggifyio.Data.Model;
 
-namespace loggifyio.AutoMapperSetup
+namespace Loggifyio.AutoMapperSetup
 {
     public class UserMap : IAutoMapperTypeConfigurator
     {

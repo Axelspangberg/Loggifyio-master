@@ -3,11 +3,9 @@ using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Principal;
-using loggifyio.Security;
-using Loggifyio.Security;
 using Microsoft.IdentityModel.Tokens;
 
-namespace loggifyio
+namespace Loggifyio.Security
 {
     public class TokenBuilder : ITokenBuilder
     {

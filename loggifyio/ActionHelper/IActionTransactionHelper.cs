@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.Filters;
 
-namespace loggifyio
+namespace Loggifyio.ActionHelper
 {
     public interface IActionTransactionHelper
     {
