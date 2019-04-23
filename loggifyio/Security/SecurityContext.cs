@@ -26,12 +26,16 @@ namespace Loggifyio.Security
             {
                 if (_user != null) return _user;
 
-                if (!_contextAccessor.HttpContext.User.Identity.IsAuthenticated)
-                {
-                    throw new UnauthorizedAccessException();
-                }
+                // Disabled for demo purpose.
 
-                var username = _contextAccessor.HttpContext.User.Identity.Name;
+                //if (!_contextAccessor.HttpContext.User.Identity.IsAuthenticated)
+                //{
+                //    throw new UnauthorizedAccessException();
+                //}
+                
+                // For demo purpose.
+                var username = "admin";
+                //var username = _contextAccessor.HttpContext.User.Identity.Name;
                 _user = _uow.Query<User>()
                     .Where(x => x.Username == username)
                     .Include(x => x.Roles)
