@@ -5,7 +5,7 @@ Loggifyio is a Restful API for saving workout/training logs. All business logic 
 ## Various technices used in the project
 
 * For Mapping: Automapper
-* For API filterinfg: Actionfilter
+* For API filtering: Actionfilter
 * For Architecture design: CQRS
 * DAL: Entity framework core / unit of work pattern
 * For tests: FluentAssertion, Moq, XUnit
