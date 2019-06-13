@@ -34,7 +34,7 @@ namespace Loggifyio
 
             Configuration = builder.Build();
         }
-
+        readonly string MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -70,6 +70,12 @@ namespace Loggifyio
             {
                 c.SwaggerDoc("v1", new Info { Title = "Loggifyio", Version = "v1" });
             });
+
+            services.AddCors(options =>
+                options.AddPolicy("loggifyio-client", p => p.WithOrigins("http://localhost:8080")
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()));
+
 
             services.AddMvc(options => { options.Filters.Add(new ApiExceptionFilter()); })
                 .AddJsonOptions(o =>
@@ -109,6 +115,7 @@ namespace Loggifyio
                 app.UseHsts();
             }
 
+            app.UseCors("Loggifyio-client");
             app.UseHttpsRedirection();
             app.UseMvc();
         }

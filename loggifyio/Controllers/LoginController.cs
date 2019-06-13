@@ -4,10 +4,12 @@ using Loggifyio.AutoMapperSetup;
 using Loggifyio.Filters;
 using Loggifyio.Queries.Processors;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Loggifyio.Controllers
 {
+    [EnableCors("loggifyio-client")]
     [Route("api/[controller]")]
     public class LoginController : Controller
     {
